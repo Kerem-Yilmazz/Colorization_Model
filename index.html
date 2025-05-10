@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+  <script src="script.js"></script>
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Fotoğraf Analizi</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <header class="header">
+        <a href="#" class="Fotoğraf">Online Photo Colorization with Artificial Intelligence</a>
+        <nav class="navbar">
+            <a href="#">Main Page</a>
+            <a href="giris.html">Login</a>
+            <a href="giris.html">Sing In</a>
+        </nav>
+    </header>
+    <div class="content">
+      <h1>For colorization choice photo</h1>
+      <input type="file" id="fileElem" multiple accept="image/*">
+      <label class="button" for="fileElem">Click for choose the photo</label>
+      <output id="list"></output>
+      <div id="results-container" style="display: none;"></div>
+      <button class="white-button" onclick="handleFiles(fileElem.files); window.location.href='index.html';">New Colorization</button>
+
+      <div id="results" style="display: none;"></div>
+      
+    </div>
+    
+    <script>
+document.getElementById('fileElem').addEventListener('change', function () {
+  handleFiles(this.files);
+});
+    </script>
+</body>
+</html>

@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Result</title>
+    <style>
+        body {
+            min-height: 100vh;
+            background: url('background.jpg') no-repeat;
+            background-size: cover;
+            background-position: center;
+            color: white; /* Yazı rengi */
+            font-family: "Poppins", sans-serif;
+        }
+
+        h1 {
+            text-align: center;
+            padding-top: 50px;
+            font-size: 60px; /* Yazı boyutunu büyüt */
+        }
+        
+        #selected-image {
+            max-width: 30%; /* Resmin maksimum genişliği */
+            height: auto; /* Otomatik yükseklik ayarı */
+            display: block;
+            margin: 20px auto; /* Merkezde gösterme ve boşluk ayarı */
+        }
+        
+        #prediction-results {
+            text-align: center;
+            margin-top: 20px;
+            font-size: 24px;
+        }
+    </style>
+</head>
+<body>
+    <h1>Result</h1>
+    <img id="selected-image" src="" alt="">
+    <div id="prediction-results"></div>
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+            const selectedImageSrc = localStorage.getItem('selectedImage');
+            const colorizedImageSrc = localStorage.getItem('colorizedImageUrl');
+            const selectedImage = document.getElementById('selected-image');
+            const predictionResults = document.getElementById('prediction-results');
+
+            // Eğer seçilen resim varsa, resmi göster
+            if (selectedImageSrc) {
+                selectedImage.src = selectedImageSrc;
+            }
+
+            // Eğer renklendirilmiş resim varsa, göster
+            if (colorizedImageSrc) {
+                const colorizedImage = document.createElement('img');
+                colorizedImage.src = colorizedImageSrc;
+                colorizedImage.style.maxWidth = '30%';
+                colorizedImage.style.height = 'auto';
+                colorizedImage.style.display = 'block';
+                colorizedImage.style.margin = '20px auto';
+
+                predictionResults.appendChild(colorizedImage);
+                predictionResults.style.display = 'block';
+            }
+        });
+    </script>
+</body>
+</html>
